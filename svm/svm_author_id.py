@@ -27,7 +27,7 @@ features_train, features_test, labels_train, labels_test = preprocess()
 
 # Import classifier SVC from sklearn.svm
 from sklearn.svm import SVC
-clf = SVC()
+clf = SVC(kernel="linear")
 
 # Train (fit) classifier with training data
 t0 = time()
