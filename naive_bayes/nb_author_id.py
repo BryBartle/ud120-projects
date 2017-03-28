@@ -22,10 +22,23 @@ from email_preprocess import preprocess
 features_train, features_test, labels_train, labels_test = preprocess()
 
 
-
-
 #########################################################
 ### your code goes here ###
+
+# Import classifier GaussianNB
+from sklearn.naive_bayes import GaussianNB
+clf = GaussianNB()
+
+# Train (fit) classifier with training data
+clf.fit(features_train, labels_train)
+
+# Use trained classifier to predict labels on feature test set
+labels_pred = clf.predict(features_test)
+
+# Import and use accuracy_score to measure accuracy
+from sklearn.metrics import accuracy_score
+percent_accuracy = accuracy_score(labels_test, labels_pred)
+print(percent_accuracy)
 
 
 #########################################################
