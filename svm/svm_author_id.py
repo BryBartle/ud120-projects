@@ -29,6 +29,10 @@ features_train, features_test, labels_train, labels_test = preprocess()
 from sklearn.svm import SVC
 clf = SVC(kernel="linear")
 
+# Decreasing training dataset size
+features_train = features_train[:len(features_train)/100] 
+labels_train = labels_train[:len(labels_train)/100] 
+
 # Train (fit) classifier with training data
 t0 = time()
 clf.fit(features_train, labels_train)
