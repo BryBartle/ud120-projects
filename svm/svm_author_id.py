@@ -25,6 +25,24 @@ features_train, features_test, labels_train, labels_test = preprocess()
 #########################################################
 ### your code goes here ###
 
+# Import classifier SVC from sklearn.svm
+from sklearn.svm import SVC
+clf = SVC()
+
+# Train (fit) classifier with training data
+t0 = time()
+clf.fit(features_train, labels_train)
+print "training time:", round(time()-t0, 3), "seconds"
+
+# Use trained classifier to predict labels on feature test set
+t1 = time()
+labels_pred = clf.predict(features_test)
+print "predicting time:", round(time()-t1, 3), "seconds"
+
+# Import and use accuracy_score to measure accuracy
+from sklearn.metrics import accuracy_score
+percent_accuracy = accuracy_score(labels_test, labels_pred)
+print percent_accuracy
 #########################################################
 
 
