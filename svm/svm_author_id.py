@@ -27,7 +27,7 @@ features_train, features_test, labels_train, labels_test = preprocess()
 
 # Import classifier SVC from sklearn.svm
 from sklearn.svm import SVC
-clf = SVC(kernel="linear")
+clf = SVC(C=10000., kernel="rbf")
 
 # Decreasing training dataset size
 features_train = features_train[:len(features_train)/100] 
