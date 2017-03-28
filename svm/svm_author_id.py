@@ -27,7 +27,11 @@ features_train, features_test, labels_train, labels_test = preprocess()
 
 # Import classifier SVC from sklearn.svm
 from sklearn.svm import SVC
-clf = SVC(C=10000., kernel="rbf") 
+clf = SVC(C=10000., kernel="rbf")
+
+# Use smaller training dataset
+features_train = features_train[:len(features_train)/100] 
+labels_train = labels_train[:len(labels_train)/100]  
 
 # Train (fit) classifier with training data
 t0 = time()
@@ -38,6 +42,9 @@ print "training time:", round(time()-t0, 3), "seconds"
 t1 = time()
 labels_pred = clf.predict(features_test)
 print "predicting time:", round(time()-t1, 3), "seconds"
+print "prediction for element 10 is", labels_pred[10]
+print "prediction for element 26 is", labels_pred[26]
+print "prediction for element 50 is", labels_pred[50]
 
 # Import and use accuracy_score to measure accuracy
 from sklearn.metrics import accuracy_score
