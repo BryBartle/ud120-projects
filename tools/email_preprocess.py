@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import pickle
-import _pickle as cPickle
+import cPickle
 import numpy
 
 from sklearn import cross_validation
@@ -30,7 +30,7 @@ def preprocess(words_file = "C:/Users/Bryan/Documents/machine-learning/ud120-pro
     ### the words (features) and authors (labels), already largely preprocessed
     ### this preprocessing will be repeated in the text learning mini-project
     authors_file_handler = open(authors_file, "r")
-    authors = pickle.load(authors_file_handler)
+    authors = pickle.load(authors_file_handler, encoding="bytes")
     authors_file_handler.close()
 
     words_file_handler = open(words_file, "r")
@@ -59,7 +59,7 @@ def preprocess(words_file = "C:/Users/Bryan/Documents/machine-learning/ud120-pro
     features_test_transformed  = selector.transform(features_test_transformed).toarray()
 
     ### info on the data
-    print ("no. of Chris training emails:"), sum(labels_train)
-    print ("no. of Sara training emails:"), len(labels_train)-sum(labels_train)
+    print "no. of Chris training emails:", sum(labels_train)
+    print "no. of Sara training emails:", len(labels_train)-sum(labels_train)
     
     return features_train_transformed, features_test_transformed, labels_train, labels_test
