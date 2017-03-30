@@ -27,18 +27,21 @@ plt.ylabel("grade")
 plt.show()
 ################################################################################
 
-
-### your code here!  name your classifier object clf if you want the 
-### visualization code (prettyPicture) to show you the decision boundary
-
-
-
+# Import Random Forest classifier and training
+from sklearn.ensemble import RandomForestClassifier
+clf = RandomForestClassifier(min_samples_split = 75)
+clf.fit(features_train, labels_train)
 
 
+# Predict with trained classifier
+labels_pred = clf.predict(features_test)
 
-
+# Calculate accuracy of trained classifier
+from sklearn.metrics import accuracy_score
+acc = accuracy_score(labels_pred, labels_test)
+print acc
 
 try:
-    prettyPicture(clf, features_test, labels_test)
+	prettyPicture(clf, features_test, labels_test)
 except NameError:
-    pass
+	pass
