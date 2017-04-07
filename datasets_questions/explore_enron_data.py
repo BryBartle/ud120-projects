@@ -17,6 +17,6 @@
 
 import pickle
 
-enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "r"))
+enron_data = pickle.load(open("C:/Users/Bryan/Documents/machine-learning/ud120-projects/final_project/final_project_dataset.pkl", "r"))
 
 
