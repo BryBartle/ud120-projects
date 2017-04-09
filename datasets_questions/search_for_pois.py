@@ -3,16 +3,18 @@
 execfile("C:/Users/Bryan/Documents/machine-learning/ud120-projects/datasets_questions/explore_enron_data.py")
 
 # Initiate i as while loop counter
-# use number of pois as number of pois counter 
+# use number to count number of people with feature
 i = 0
-number_of_pois = 0
+number = 0
+list_pois = []
 
-# Use while loop to check if poi is False or True
+# Use while loop to check if for feature
 # for each of the 146 people and count total
 while i < 146:
 	if enron_data.values()[i].values()[15] == True:
-		number_of_pois += 1
+		number += 1
+		list_pois.append(i)
 	i += 1
 
-# Print answer for total number of pois
-print number_of_pois
+# Print answer for total number of features
+print number
